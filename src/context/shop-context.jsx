@@ -16,32 +16,46 @@ const getDefaultCart = () =>
 
 export const ShopContextProvider = (props) => {
 
+ 
+
     const [cartItems,setCartItems] = useState(getDefaultCart())
 
-   const initialValues = { username:'',email:"",pass:""}
+   const initialValues = [{ username:'',email:"",pass:""}]
    
 
-    const [formValues,setFormValues] = useState(initialValues)
+    const [formValues,setFormValues] = useState(initialValues);
 
-   
+    const [isLoggedIn,setIsLoggedIn] = useState(false);
+     
+    const [ userName , setUserName ]  = useState('');
 
     const handleChange = (e) =>{
 
       const { name,value } = e.target;
-        setFormValues({...formValues, [name] : value })
+    // setFormValues([...formValues, {  [name] : value }])
+    setFormValues((prev) => ({ ...prev, [name]: value}));
+    const updatedFormValues=[formValues]
+        console.log(updatedFormValues)
+        // console.log(formValues)
+        
      
         
     }
-
+    
     // useEffect(() => {
     //   console.log(formValues)
     // }, [formValues])
-   
+    
     const handleSubmit = (e) =>
     {
        e.preventDefault();
       setFormValues(initialValues)
+    
     }
+    
+
+   
+
 
     const getTotalCartAmount =() => {
       let totalAmount=0
@@ -65,7 +79,7 @@ export const ShopContextProvider = (props) => {
    const updateCartItemCount = (newAmount , itemId) => {
            setCartItems((prev) =>({...prev, [itemId]: newAmount}))
    }
-   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,handleChange, handleSubmit }
+   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit }
 
   return (
     <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>

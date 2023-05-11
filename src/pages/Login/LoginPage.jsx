@@ -8,35 +8,58 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const LoginPage = () => {
-  const {handleSubmit} =useContext(ShopContext)
+  const data = useContext(ShopContext)
+ const {formValues,setFormValues } = data
 
-  const initialValues = {email: '',Password: ''}
+ const [loginValues,setLoginValues] = useState([{email:'',pass:''}])
+  
 
-  const [formValues,setFormValues] = useState(initialValues)
-
-  const handleChange = (e) =>{
-
-    const { name,value } = e.target;
-      setFormValues({...formValues, [name] : value })
-       console.log(formValues)
+ const handleSubmit = (e) =>
+ {
+    e.preventDefault();
     
+   
+   
+   
   }
+
+  
+  const handleLoginChange = (event) => {
+    const { name, value } = event.target;
+    setLoginValues({ ...loginValues, [name]: value });
+    const updatedLoginValues=[loginValues]
+        console.log(updatedLoginValues)
+  };
   const navigate = useNavigate() 
+  
+
   
   return (
     <div className='LoginPage'> <h2>Login</h2>
     <form onSubmit={handleSubmit}>
      
       <label htmlFor="email">Email</label>
-      <input value={formValues.email} onChange={handleChange} type="email"  name="email" placeholder='yourname@gmail.com' />
+      <input value={loginValues.email} onChange={handleLoginChange} type="email"  name="email" placeholder='yourname@gmail.com' />
 
       <label htmlFor="password">Password</label>
-      <input value={formValues.Password} onChange={handleChange} type="password" name="Password" placeholder='**************'
+      <input value={loginValues.pass} onChange={handleLoginChange} type="password" name="pass" placeholder='**************'
       
      />
       <button onClick={()=>{
-        navigate('/')
-     setFormValues(initialValues);
+         if (
+          formValues.email === loginValues.email &&
+          formValues.pass === loginValues.pass
+        ) {
+         navigate('/')
+        } else {
+          alert('Values do not match.');
+        }
+       
+        
+         setFormValues({email:'',pass:''})
+        
+       
+    
      
     
     }} className={button.Button} type="submit">Login</button>

@@ -5,7 +5,8 @@ import './cart.css'
 
 export const CartItem = (props) => {
     const {id,productName,price,productImage} = props.value;
-    const { addToCart , cartItems ,removeFromCart,updateCartItemCount} = useContext(ShopContext)
+    const data = useContext(ShopContext)
+    const  { addToCart , cartItems ,removeFromCart,updateCartItemCount} = data;
   return (
    <div className="cartItem">
     <img src={productImage} />

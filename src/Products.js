@@ -57,3 +57,5 @@ export const PRODUCTS=[
     
     },
 ]
+
+export const user=[]

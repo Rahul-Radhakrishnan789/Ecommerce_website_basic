@@ -7,6 +7,7 @@ import { Shop } from './pages/Shop/Shop';
 import { ShopContextProvider } from './context/shop-context';
 import { LoginPage } from './pages/Login/LoginPage';
 import { SignUpPage } from './pages/SignUpPage/SignUpPage';
+import { UserSection } from './pages/AdminPage/User-Section/UserSection';
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
       <Route path='/cart' element={<Cart/>}/>
        <Route path='/LoginPage' element={<LoginPage/>}/>
        <Route path='/signup' element={<SignUpPage/>}></Route>
+       <Route path='/admin' element={<UserSection/>}/>
       </Routes>
       </Router>
       </ShopContextProvider>
