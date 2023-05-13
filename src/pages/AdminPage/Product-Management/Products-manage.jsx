@@ -1,8 +1,14 @@
 import React from 'react'
-import "./products-manage.css"
+import './proman.css'
+import { PRODUCTS } from '../../../Products'
+import { ProductManagement } from './ProductManagement'
 
 export const ProductsManage = () => {
   return (
-    <div>Products-manage</div>
+    <div className='main'>
+     
+      <div> {PRODUCTS.map((item,index) => <ProductManagement value={item} key={index}/>)}</div>
+    </div>
+   
   )
 }

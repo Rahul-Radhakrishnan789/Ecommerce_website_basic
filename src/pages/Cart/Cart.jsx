@@ -3,13 +3,15 @@ import { PRODUCTS } from '../../Products'
 import { ShopContext } from '../../context/shop-context';
 import { CartItem } from './cart-item';
 import { useNavigate } from 'react-router-dom';
+import { cartValues } from '../../Products';
+
 
 
 
 
 export const Cart = () => {
   const data = useContext(ShopContext)
-  const { getTotalCartAmount , cartItems} = data
+  const { getTotalCartAmount , cartItems ,setShowCart,showCart} = data
    const navigate = useNavigate()
   return (
     <div className='cart'>
@@ -17,6 +19,9 @@ export const Cart = () => {
       <div className='cartItems'>
         {PRODUCTS.map((product) =>{
            if(cartItems[product.id]!==0){
+            setShowCart(product)
+            cartValues.push(product)
+ 
             return <CartItem value={product}/>
            }
         })}

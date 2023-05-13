@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { PRODUCTS } from '../Products';
+import { MENPRODUCTS } from '../pages/MEN/menPage';
+import { WOMENPRODUCTS } from '../pages/WOMEN/WomenPage';
 
 
 export const ShopContext = createContext(null);
@@ -13,10 +15,12 @@ const getDefaultCart = () =>
     }
     return cart
 };
-
+ 
 export const ShopContextProvider = (props) => {
 
- 
+const [showCart,setShowCart] = useState([] )
+
+ const [selectedUser,setSelectedUser] = useState('')
 
     const [cartItems,setCartItems] = useState(getDefaultCart())
 
@@ -79,7 +83,7 @@ export const ShopContextProvider = (props) => {
    const updateCartItemCount = (newAmount , itemId) => {
            setCartItems((prev) =>({...prev, [itemId]: newAmount}))
    }
-   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit }
+   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit,selectedUser ,setSelectedUser,showCart,setShowCart,MENPRODUCTS , WOMENPRODUCTS }
 
   return (
     <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>

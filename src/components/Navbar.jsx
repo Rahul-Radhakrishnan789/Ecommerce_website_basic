@@ -16,8 +16,8 @@ export const Navbar = () => {
        <div className="navname">shoeland</div>
        <div className="category">
    <Link to="/admin" ><UserCircleGear size={32} /></Link>  
-        <Link to="">Men</Link>
-      <Link to="">Women</Link>
+        <Link to="/menPage">Men</Link>
+      <Link to="/womenPage">Women</Link>
      
        </div>
       <div className="links">

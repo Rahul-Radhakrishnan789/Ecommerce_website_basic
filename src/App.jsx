@@ -8,6 +8,11 @@ import { ShopContextProvider } from './context/shop-context';
 import { LoginPage } from './pages/Login/LoginPage';
 import { SignUpPage } from './pages/SignUpPage/SignUpPage';
 import { UserSection } from './pages/AdminPage/User-Section/UserSection';
+import { UserInfo } from './pages/AdminPage/User-Section/UserSection-items';
+import { ProductsManage } from './pages/AdminPage/Product-Management/Products-manage';
+import { MenPage } from './pages/MEN/menPage';
+import { WomenPage } from './pages/WOMEN/WomenPage';
+
 function App() {
   return (
     <div className="App">
@@ -23,6 +28,10 @@ function App() {
        <Route path='/LoginPage' element={<LoginPage/>}/>
        <Route path='/signup' element={<SignUpPage/>}></Route>
        <Route path='/admin' element={<UserSection/>}/>
+       <Route path='/user' element={<UserInfo/>} />
+       <Route path='/productManagement' element={< ProductsManage/>}/>
+       <Route path='/menPage' element={< MenPage />} />
+       <Route path='/womenPage' element={<WomenPage/>} />
       </Routes>
       </Router>
       </ShopContextProvider>
