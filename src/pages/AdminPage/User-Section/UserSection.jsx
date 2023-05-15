@@ -28,7 +28,7 @@ const handleClick = (item) => {
           <br />
           <li><b><Link to='/productManagement'>Products</Link></b></li>
           <br />
-          <li><b>Category</b>
+          <li><b><Link to='/addproduct'>Add product</Link></b>
           </li>
         </ul>
       </div>

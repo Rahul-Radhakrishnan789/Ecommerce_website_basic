@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { PRODUCTS } from '../Products';
-import { MENPRODUCTS } from '../pages/MEN/menPage';
-import { WOMENPRODUCTS } from '../pages/WOMEN/WomenPage';
+// import { MENPRODUCTS } from '../pages/MEN/menPage';
+// import { WOMENPRODUCTS } from '../pages/WOMEN/WomenPage';
 
 
 export const ShopContext = createContext(null);
@@ -17,6 +17,8 @@ const getDefaultCart = () =>
 };
  
 export const ShopContextProvider = (props) => {
+
+const [products,setProducts] = useState(PRODUCTS)
 
 const [showCart,setShowCart] = useState([] )
 
@@ -83,7 +85,7 @@ const [showCart,setShowCart] = useState([] )
    const updateCartItemCount = (newAmount , itemId) => {
            setCartItems((prev) =>({...prev, [itemId]: newAmount}))
    }
-   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit,selectedUser ,setSelectedUser,showCart,setShowCart,MENPRODUCTS , WOMENPRODUCTS }
+   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit,selectedUser ,setSelectedUser,showCart,setShowCart ,products ,setProducts}
 
   return (
     <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>

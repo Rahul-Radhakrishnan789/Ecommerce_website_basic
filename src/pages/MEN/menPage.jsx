@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './menPage.css'
 import { PRODUCTS } from '../../Products'
 import { MensProduct } from './MensProduct'
-export const MENPRODUCTS = PRODUCTS.filter((item) => item.category==='men')
 
+import { ShopContext } from '../../context/shop-context'
 export const MenPage = () => {
+  const data = useContext(ShopContext)
+  const {products} = data
+  const MENPRODUCTS = products.filter((item) => item.category==='men')
 
   return (
     <div className='mainmen'>

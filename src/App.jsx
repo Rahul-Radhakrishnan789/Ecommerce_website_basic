@@ -12,6 +12,9 @@ import { UserInfo } from './pages/AdminPage/User-Section/UserSection-items';
 import { ProductsManage } from './pages/AdminPage/Product-Management/Products-manage';
 import { MenPage } from './pages/MEN/menPage';
 import { WomenPage } from './pages/WOMEN/WomenPage';
+import { AddProduct } from './pages/AdminPage/AddProduct/AddProduct';
+import { EditProduct } from './pages/AdminPage/Product-Management/EditProduct';
+
 
 function App() {
   return (
@@ -32,6 +35,8 @@ function App() {
        <Route path='/productManagement' element={< ProductsManage/>}/>
        <Route path='/menPage' element={< MenPage />} />
        <Route path='/womenPage' element={<WomenPage/>} />
+       <Route path='/addproduct' element={<AddProduct/>}  />
+       <Route path='/editpage' element={<EditProduct/>} />
       </Routes>
       </Router>
       </ShopContextProvider>

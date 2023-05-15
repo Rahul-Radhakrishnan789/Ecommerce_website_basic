@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './WomenPage.css'
 import { PRODUCTS } from '../../Products'
 import { WomensProduct } from './WomensProduct'
-export const WOMENPRODUCTS = PRODUCTS.filter((item) => item.category==='women')
+import { ShopContext } from '../../context/shop-context'
+
 export const WomenPage = () => {
-   
+  const data = useContext(ShopContext)
+  const {products} = data
+   const WOMENPRODUCTS = products.filter((item) => item.category==='women')
   return (
  
    
