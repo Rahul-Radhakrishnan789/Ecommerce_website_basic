@@ -36,7 +36,7 @@ function App() {
        <Route path='/menPage' element={< MenPage />} />
        <Route path='/womenPage' element={<WomenPage/>} />
        <Route path='/addproduct' element={<AddProduct/>}  />
-       <Route path='/editpage' element={<EditProduct/>} />
+       <Route path='/editpage/:paramid' element={<EditProduct/>} />
       </Routes>
       </Router>
       </ShopContextProvider>

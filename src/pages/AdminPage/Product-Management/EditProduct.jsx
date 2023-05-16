@@ -1,36 +1,50 @@
-import { useState,useContext } from 'react'
+import { useState } from 'react'
 import { ShopContext } from '../../../context/shop-context'
 import React from 'react'
 import './EditProduct.css'
-
+import { useNavigate,useParams } from 'react-router-dom'
+import { useContext } from 'react'
 export const EditProduct = () => {
     const data = useContext(ShopContext);
     const { products, setProducts } = data;
+    const {paramid} = useParams()
+    const navigate = useNavigate()
+    const itemId = products.filter((item) => {
+      return item.id===parseInt(paramid)
+    
+    })
 
-    const [editProduct, setEditProduct] = useState({
-        productName: '',
-        price: '',
-        productImage: '',
-        category: '',
-      });
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-    }
+    const [editProduct, setEditProduct] = useState(itemId[0]);
+   
+
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setEditProduct((prev) => ({
           ...prev,[name]: value,}));
           console.log(editProduct)
+       
       };
+      function handleConfirm(id){
+        const index = products.findIndex(item=>item.id===id);
+ 
+        products[index]= editProduct;
+      
+      }
 
+  const handleSubmit = (e) => {
+     e.preventDefault()
+     navigate('/')
+  }
 
+     
 
   return (
     <div className='editproducts'> <div className='edits'>
     <h2>Edit Product</h2>
-    <form  className='product-forms' onSubmit={handleSubmit}>
+    <form  className='product-forms' onSubmit={handleSubmit} >
       <label htmlFor='product-name'>Product Name:</label>
       <input
         type='text'
@@ -70,8 +84,10 @@ export const EditProduct = () => {
         <option value='women'>Women</option>
       </select>
 
-      <button type='submit'>Update</button>
+      <button type='submit' onClick={handleConfirm(editProduct.id)} >Update</button>
     </form>
-  </div></div>
+  </div>
+
+  </div>
   )
 }

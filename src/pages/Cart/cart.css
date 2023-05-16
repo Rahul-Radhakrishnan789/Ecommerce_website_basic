@@ -31,6 +31,8 @@
   
   .countHandler input {
     width: 19px;
+    display: flex;
+    margin:20px;
     text-align: center;
     font-weight: bolder;
    margin-top: 20px;

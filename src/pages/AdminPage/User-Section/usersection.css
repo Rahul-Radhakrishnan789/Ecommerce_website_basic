@@ -46,3 +46,10 @@
     width: 100%;
     font-size: 30px;
   }
+  .sidenav{
+ display: flex;
+flex-direction: column;
+padding-top: 200px;
+
+
+  }

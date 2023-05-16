@@ -32,7 +32,9 @@ const  navigate = useNavigate()
       </div>
       <div className='phosphor'>
      <button onClick={() => deleteProduct(id)}><XCircle size={32} /></button> 
-    <button onClick={() => navigate("/editpage")}> <PencilSimple size={32} /></button> 
+    <button onClick={() => navigate(`/editpage/${id}`)
+ 
+  }> <PencilSimple size={32} /></button> 
       </div>
     </div>
   )

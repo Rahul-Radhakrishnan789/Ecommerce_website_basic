@@ -20,6 +20,9 @@ export const ShopContextProvider = (props) => {
 
 const [products,setProducts] = useState(PRODUCTS)
 
+const [searchQuery, setSearchQuery] = useState('');
+
+
 const [showCart,setShowCart] = useState([] )
 
  const [selectedUser,setSelectedUser] = useState('')
@@ -31,7 +34,7 @@ const [showCart,setShowCart] = useState([] )
 
     const [formValues,setFormValues] = useState(initialValues);
 
-    const [isLoggedIn,setIsLoggedIn] = useState(false);
+    const [isLoggedIn,setIsLoggedIn] = useState();
      
     const [ userName , setUserName ]  = useState('');
 
@@ -85,7 +88,7 @@ const [showCart,setShowCart] = useState([] )
    const updateCartItemCount = (newAmount , itemId) => {
            setCartItems((prev) =>({...prev, [itemId]: newAmount}))
    }
-   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit,selectedUser ,setSelectedUser,showCart,setShowCart ,products ,setProducts}
+   const contextValue = {cartItems, addToCart , removeFromCart ,updateCartItemCount,getTotalCartAmount,formValues,setFormValues,isLoggedIn , setIsLoggedIn, userName , setUserName , handleChange ,handleSubmit,selectedUser ,setSelectedUser,showCart,setShowCart ,products ,setProducts,searchQuery, setSearchQuery}
 
   return (
     <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>

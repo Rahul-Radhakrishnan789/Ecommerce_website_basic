@@ -34,6 +34,7 @@ export const UserInfo = () => {
   <div className='descriptionas'>
     <p><b>{Items.productName}</b></p>
     <p>${Items.price}</p>
+ {   console.log(cartValues)}
    
     </div>
     </div>

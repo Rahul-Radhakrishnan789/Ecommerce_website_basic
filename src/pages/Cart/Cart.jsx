@@ -11,13 +11,13 @@ import { cartValues } from '../../Products';
 
 export const Cart = () => {
   const data = useContext(ShopContext)
-  const { getTotalCartAmount , cartItems ,setShowCart,showCart} = data
+  const { getTotalCartAmount , cartItems ,setShowCart,showCart,products} = data
    const navigate = useNavigate()
   return (
     <div className='cart'>
       <div><h1>Dont wait... Checkout NOW!!!</h1></div>
       <div className='cartItems'>
-        {PRODUCTS.map((product) =>{
+        {products.map((product) =>{
            if(cartItems[product.id]!==0){
             setShowCart(product)
             cartValues.push(product)

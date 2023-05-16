@@ -2,15 +2,20 @@ import React, { useState } from 'react'
 import "./SignUpPage.css"
 import { ShopContext } from '../../context/shop-context';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { user } from '../../Products';
 
 export const SignUpPage = () => {
   const data =useContext(ShopContext)
-  const {formValues,setFormValues,initialValues ,handleChange ,handleSubmit} = data;
+  const {formValues,setFormValues,initialValues ,handleChange ,handleSubmit,setIsLoggedIn,setUserName} = data;
  const navigate=useNavigate();
+   const changeName = () =>
+   {
+     setUserName(formValues.username)
+     setIsLoggedIn(true)
 
+   }
 
   return (
     <div className="signup-form">
@@ -29,6 +34,7 @@ export const SignUpPage = () => {
 
         user.push(formValues)
            navigate('/LoginPage')
+           changeName()
     
     }} type="submit">Submit</button>
     </form>

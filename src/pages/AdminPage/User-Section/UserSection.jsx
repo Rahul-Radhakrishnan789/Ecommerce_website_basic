@@ -7,10 +7,11 @@ import {CaretCircleRight } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 
 
+
 export const UserSection = () => {
 
     const data = useContext(ShopContext)
-  const {setSelectedUser } = data
+  const {setSelectedUser,products } = data
 
  
 
@@ -22,6 +23,7 @@ const handleClick = (item) => {
   return (
     <div className='adminpage' >
       <div className='sidenav'>
+       
         <ul className='li'>
           <br />
           <li><b><Link to="/admin">Users</Link></b></li>
@@ -50,6 +52,7 @@ const handleClick = (item) => {
         )
       })}
     </div>
+  
      </div>
   )
 }
