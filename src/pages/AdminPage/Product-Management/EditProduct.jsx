@@ -17,9 +17,7 @@ export const EditProduct = () => {
 
     const [editProduct, setEditProduct] = useState(itemId[0]);
    
-
     
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setEditProduct((prev) => ({

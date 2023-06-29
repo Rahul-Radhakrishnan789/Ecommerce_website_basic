@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { PRODUCTS } from '../Products';
-// import { MENPRODUCTS } from '../pages/MEN/menPage';
-// import { WOMENPRODUCTS } from '../pages/WOMEN/WomenPage';
+
 
 
 export const ShopContext = createContext(null);
@@ -29,7 +28,7 @@ const [showCart,setShowCart] = useState([] )
 
     const [cartItems,setCartItems] = useState(getDefaultCart())
 
-   const initialValues = [{ username:'',email:"",pass:""}]
+   const initialValues = [{ username:'',email:"",password:""}]
    
 
     const [formValues,setFormValues] = useState(initialValues);
