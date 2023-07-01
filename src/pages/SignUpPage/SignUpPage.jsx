@@ -17,13 +17,18 @@ const password = formValues.password;
  const handleClick = async  () => {
   try{
 
-  await axios.post('http://localhost:3007/api/users/register',{username:username,password:password});
+  await axios.post('http://localhost:3007/api/users/register',{username:username,password:password})
 
+
+  .then(response => console.log(response.data))
+    .catch(error => {
+      console.error("Error fetching customer data:", error);
+ 
+    });
   setFormValues({username:data.username,password:data.password});
  
-
-  navigate('/LoginPage')
-  changeName()
+   navigate('/LoginPage')
+   changeName()
   }  
   catch (error) {
     console.error('Error registering user:', error);
